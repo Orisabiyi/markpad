@@ -49,6 +49,19 @@ body {
 }
 
 /* Editor Section */
+.editor {
+  display: flex;
+  align-items: center;
+}
+
+.editor--1 {
+  flex: 1;
+}
+
+.editor--1:nth-of-type(1) {
+  border-right: 1px solid gray;
+}
+
 .editor__heading {
   display: flex;
   align-items: center;
@@ -59,8 +72,8 @@ body {
 }
 
 .editor__view {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .editor__view img {
@@ -72,10 +85,11 @@ body {
 .editor__area {
   height: 100vh;
   min-height: 100vh;
+  background: #181818;
 }
 
 .editor__area textarea {
-  background: #181818;
+  background: unset;
   font-family: inherit;
   padding: 1.2rem;
   color: inherit;
