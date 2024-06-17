@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 export default function Editor() {
+  const [content, setContent] = useState("");
+
+  function handleSetContent(e) {
+    setContent(e.target.value);
+  }
+
   return (
     <div className="editor">
       <div className="editor__heading">
@@ -8,7 +16,7 @@ export default function Editor() {
         </button>
       </div>
       <div className="editor__area">
-        <textarea></textarea>
+        <textarea value={content} onChange={handleSetContent}></textarea>
       </div>
     </div>
   );
