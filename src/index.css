@@ -16,8 +16,8 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
   font-family: "Inconsolata", monospace;
-  color: #fff;
   letter-spacing: 0.2rem;
+  color: #fff;
 }
 
 .navbar {
@@ -84,6 +84,8 @@ body {
 
 .editor__area {
   height: 100vh;
+  padding: 1.2rem;
+  line-height: 1.5;
   min-height: 100vh;
   background: #181818;
 }
@@ -91,7 +93,6 @@ body {
 .editor__area textarea {
   background: unset;
   font-family: inherit;
-  padding: 1.2rem;
   color: inherit;
   height: 100%;
   width: 100%;
@@ -113,6 +114,11 @@ button {
 
 textarea {
   resize: none;
+  line-height: 2;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
 }
 
 textarea::-webkit-resizer,
