@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap");
+
 *,
 *::after,
 *::before {
@@ -8,4 +10,39 @@
 
 html {
   font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Inconsolata", monospace;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+}
+
+.navbar {
+  background: #373737;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu {
+  padding: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-menu img {
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.navbar h1 {
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2rem 1.5rem;
 }
