@@ -55,7 +55,8 @@ body {
 }
 
 .editor--1 {
-  flex: 1;
+  flex: 0 0 auto;
+  width: 50%;
 }
 
 .editor--1:nth-of-type(1) {
@@ -92,6 +93,7 @@ body {
   padding: 1.2rem;
   line-height: 1.5;
   min-height: 100vh;
+  overflow-wrap: break-word;
   background: #181818;
 }
 
@@ -114,7 +116,7 @@ button {
 
 textarea {
   resize: none;
-  line-height: 2;
+  line-height: 1.5;
 }
 
 textarea::-webkit-scrollbar {

@@ -2,7 +2,6 @@ import { useReducer } from "react";
 import ReactMarkdown from "react-markdown";
 
 function reducer(state, action) {
-  console.log(state, action);
   switch (action.type) {
     case "setPreview":
       return { ...state, preview: !state.preview };
