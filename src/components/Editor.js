@@ -1,29 +1,36 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import ReactMarkdown from "react-markdown";
 
+function reducer(state, action) {
+  console.log(state, action);
+  switch (action.type) {
+    case "setPreview":
+      return { ...state, preview: !state.preview };
+    case "setContent":
+      return { ...state, content: action.payload };
+    default:
+      throw new Error("Unknown");
+  }
+}
+
 export default function Editor() {
-  const [content, setContent] = useState("");
-  const [preview, setPreview] = useState(false);
-
-  function handleSetContent(e) {
-    setContent(e.target.value);
-  }
-
-  function handleSetPreview() {
-    setPreview((value) => !value);
-  }
+  const initialState = { content: "", preview: false };
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { content, preview } = state;
 
   return (
     <div className="editor">
       <div className="editor--1">
         <div className="editor__heading">
           <h2>markpad</h2>
-          {!preview && <Button onSetPreview={handleSetPreview} />}
+          {!preview && <Button dispatch={dispatch} />}
         </div>
         <div className="editor__area">
           <textarea
             value={content}
-            onChange={handleSetContent}
+            onChange={(e) =>
+              dispatch({ type: "setContent", payload: e.target.value })
+            }
             spellCheck={true}
           ></textarea>
         </div>
@@ -33,7 +40,7 @@ export default function Editor() {
         <div className="editor--1">
           <div className="editor__heading">
             <h2>preview</h2>
-            {preview && <Button onSetPreview={handleSetPreview} />}
+            {preview && <Button dispatch={dispatch} />}
           </div>
           <div className="editor__area">
             <ReactMarkdown children={content} />
@@ -44,9 +51,12 @@ export default function Editor() {
   );
 }
 
-function Button({ onSetPreview }) {
+function Button({ dispatch }) {
   return (
-    <button className="editor__view" onClick={onSetPreview}>
+    <button
+      className="editor__view"
+      onClick={() => dispatch({ type: "setPreview" })}
+    >
       <img src="asset/view.png" alt="an eye icon for viewing" />
     </button>
   );
