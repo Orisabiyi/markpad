@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -19,7 +20,7 @@ export default function Editor() {
 
   return (
     <div className="editor">
-      <div className="editor--1">
+      <div className={`editor--1 ${!preview ? "editor__full" : ""}`}>
         <div className="editor__heading">
           <h2>markpad</h2>
           {!preview && <Button dispatch={dispatch} />}
@@ -42,7 +43,11 @@ export default function Editor() {
             {preview && <Button dispatch={dispatch} />}
           </div>
           <div className="editor__area">
-            <ReactMarkdown children={content} />
+            <ReactMarkdown
+              children={content}
+              gfm={true}
+              remarkPlugins={[gfm]}
+            />
           </div>
         </div>
       )}
