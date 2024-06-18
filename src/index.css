@@ -71,6 +71,11 @@ body {
   background: #222223;
 }
 
+.editor__heading h2 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+}
+
 .editor__view {
   width: 2.5rem;
   height: 2.5rem;
@@ -98,11 +103,6 @@ body {
   width: 100%;
   outline: 0;
   border: 0;
-}
-
-h2 {
-  text-transform: uppercase;
-  font-size: 2.5rem;
 }
 
 button {
