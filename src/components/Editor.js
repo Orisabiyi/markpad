@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
+import LineBreakerRender from "./LineBreakerRender";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -48,6 +49,7 @@ export default function Editor() {
                 children={content}
                 gfm={true}
                 remarkPlugins={[gfm]}
+                components={{ br: LineBreakerRender }}
               />
             </div>
           </div>
