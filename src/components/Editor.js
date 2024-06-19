@@ -43,11 +43,13 @@ export default function Editor() {
             {preview && <Button dispatch={dispatch} />}
           </div>
           <div className="editor__area">
-            <ReactMarkdown
-              children={content}
-              gfm={true}
-              remarkPlugins={[gfm]}
-            />
+            <div className="editor__output">
+              <ReactMarkdown
+                children={content}
+                gfm={true}
+                remarkPlugins={[gfm]}
+              />
+            </div>
           </div>
         </div>
       )}

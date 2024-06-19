@@ -51,7 +51,7 @@ body {
 /* Editor Section */
 .editor {
   display: flex;
-  align-items: center;
+  align-items: stretch;
 }
 
 .editor--1 {
@@ -102,13 +102,19 @@ body {
 }
 
 .editor__area textarea {
-  background: unset;
   font-family: inherit;
+  background: unset;
   color: inherit;
-  height: 100%;
+
   width: 100%;
   outline: 0;
   border: 0;
+}
+
+.editor__output,
+.editor__area textarea {
+  overflow-y: scroll;
+  height: 100%;
 }
 
 button {
@@ -123,7 +129,8 @@ textarea {
   line-height: 1.5;
 }
 
-textarea::-webkit-scrollbar {
+textarea::-webkit-scrollbar,
+.editor__output::-webkit-scrollbar {
   display: none;
 }
 
@@ -131,4 +138,25 @@ textarea::-webkit-resizer,
 textarea::-ms-clear,
 textarea::-ms-reveal {
   display: none;
+}
+
+/* styling markdown element */
+h1 {
+  font-size: 3.2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+p,
+ul,
+ol {
+  font-size: 1.8rem;
 }
