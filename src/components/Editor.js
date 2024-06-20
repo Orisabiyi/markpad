@@ -1,8 +1,6 @@
 import { useReducer } from "react";
 import ReactMarkdown from "react-markdown";
-// import gfm from "remark-gfm";
 import remarkGfm from "remark-gfm";
-// import remarkBreaks from "remark-breaks";
 
 function reducer(state, action) {
   switch (action.type) {
