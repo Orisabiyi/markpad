@@ -95,7 +95,7 @@ body {
 .editor__area {
   height: 100vh;
   padding: 1.2rem;
-  line-height: 1.5;
+  line-height: 1.2;
   min-height: 100vh;
   overflow-wrap: break-word;
   background: #181818;
@@ -141,7 +141,7 @@ textarea::-ms-reveal {
 }
 
 /* styling markdown element */
-h1 {
+/* h1 {
   font-size: 3.2rem;
 }
 
@@ -159,4 +159,4 @@ p,
 ul,
 ol {
   font-size: 1.8rem;
-}
+} */

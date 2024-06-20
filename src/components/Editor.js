@@ -1,7 +1,8 @@
 import { useReducer } from "react";
 import ReactMarkdown from "react-markdown";
-import gfm from "remark-gfm";
-import LineBreakerRender from "./LineBreakerRender";
+// import gfm from "remark-gfm";
+import remarkGfm from "remark-gfm";
+// import remarkBreaks from "remark-breaks";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -12,6 +13,13 @@ function reducer(state, action) {
     default:
       throw new Error("Unknown");
   }
+}
+
+function handleEmptyLines(content) {
+  const lines = content.split("\n");
+  const modifiedLines = lines.map((line) => (line === "" ? "" : line));
+  const modifiedContent = modifiedLines.join("&nbsp;  \n");
+  return modifiedContent;
 }
 
 export default function Editor() {
@@ -45,12 +53,9 @@ export default function Editor() {
           </div>
           <div className="editor__area">
             <div className="editor__output">
-              <ReactMarkdown
-                children={content}
-                gfm={true}
-                remarkPlugins={[gfm]}
-                components={{ br: LineBreakerRender }}
-              />
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {handleEmptyLines(content)}
+              </ReactMarkdown>
             </div>
           </div>
         </div>
