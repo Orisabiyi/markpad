@@ -95,7 +95,7 @@ body {
 .editor__area {
   height: 100vh;
   padding: 1.2rem;
-  line-height: 1.2;
+  /* line-height: 1.5; */
   min-height: 100vh;
   overflow-wrap: break-word;
   background: #181818;
@@ -126,7 +126,7 @@ button {
 
 textarea {
   resize: none;
-  line-height: 1.5;
+  /* line-height: 1.5; */
 }
 
 textarea::-webkit-scrollbar,
@@ -140,23 +140,60 @@ textarea::-ms-reveal {
   display: none;
 }
 
-/* styling markdown element */
-/* h1 {
-  font-size: 3.2rem;
+.editor__area h1,
+.editor__area h2,
+.editor__area h3,
+.editor__area h4,
+.editor__area h5,
+.editor__area h6 {
+  line-height: 1;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+.editor__area h1 {
+  font-size: 3rem;
 }
 
-p,
-ul,
-ol {
-  font-size: 1.8rem;
-} */
+a:link,
+a:visited {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #fff;
+}
+
+pre {
+  padding: 2rem 0;
+  font-size: 1.4rem;
+  position: relative;
+}
+
+pre::before,
+pre::after {
+  height: 80%;
+  content: "";
+  display: block;
+
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+pre::before {
+  right: 0;
+  width: 100%;
+  background: rgb(34, 34, 34);
+}
+
+pre::after {
+  left: 0;
+  width: 0.2rem;
+  background: orangered;
+}
+
+pre code {
+  position: relative;
+  display: inline-block;
+  padding: 0 1rem;
+}

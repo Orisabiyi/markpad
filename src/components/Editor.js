@@ -1,4 +1,6 @@
 import { useReducer } from "react";
+import Button from "./Button";
+import handleEmptyLines from "./handleEmptyLines";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -11,13 +13,6 @@ function reducer(state, action) {
     default:
       throw new Error("Unknown");
   }
-}
-
-function handleEmptyLines(content) {
-  const lines = content.split("\n");
-  const modifiedLines = lines.map((line) => (line === "" ? "" : line));
-  const modifiedContent = modifiedLines.join("&nbsp;  \n");
-  return modifiedContent;
 }
 
 export default function Editor() {
@@ -59,16 +54,5 @@ export default function Editor() {
         </div>
       )}
     </div>
-  );
-}
-
-function Button({ dispatch }) {
-  return (
-    <button
-      className="editor__view"
-      onClick={() => dispatch({ type: "setPreview" })}
-    >
-      <img src="asset/view.png" alt="an eye icon for viewing" />
-    </button>
   );
 }
