@@ -4,6 +4,7 @@ import handleEmptyLines from "./handleEmptyLines";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import EditorHeading from "./EditorHeading";
+import EditorArea from "./EditorArea";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -18,25 +19,24 @@ function reducer(state, action) {
 
 export default function Editor() {
   const initialState = { content: "", preview: false };
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const { content, preview } = state;
+  const [{ content, preview }, dispatch] = useReducer(reducer, initialState);
 
   return (
     <div className="editor">
       <div className={`editor--1 ${!preview ? "editor__full" : ""}`}>
-        <div className="editor__heading">
+        <EditorHeading>
           <h2>markpad</h2>
           {!preview && <Button dispatch={dispatch} />}
-        </div>
-        <div className="editor__area">
+        </EditorHeading>
+
+        <EditorArea>
           <textarea
             value={content}
             onChange={(e) =>
               dispatch({ type: "setContent", payload: e.target.value })
             }
-            spellCheck={true}
           ></textarea>
-        </div>
+        </EditorArea>
       </div>
 
       {preview && (
@@ -46,13 +46,13 @@ export default function Editor() {
             {preview && <Button dispatch={dispatch} />}
           </EditorHeading>
 
-          <div className="editor__area">
+          <EditorArea>
             <div className="editor__output">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {handleEmptyLines(content)}
               </ReactMarkdown>
             </div>
-          </div>
+          </EditorArea>
         </div>
       )}
     </div>
