@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import EditorHeading from "./EditorHeading";
 import EditorArea from "./EditorArea";
+import remarkBreaks from "remark-breaks";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -48,8 +49,9 @@ export default function Editor() {
 
           <EditorArea>
             <div className="editor__output">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {handleEmptyLines(content)}
+              <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
+                {/* {handleEmptyLines(content)} */}
+                {content}
               </ReactMarkdown>
             </div>
           </EditorArea>

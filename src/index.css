@@ -111,6 +111,10 @@ body {
   border: 0;
 }
 
+.editor__output {
+  padding-right: 1rem;
+}
+
 .editor__output,
 .editor__area textarea {
   overflow-y: scroll;
@@ -131,7 +135,15 @@ textarea {
 
 textarea::-webkit-scrollbar,
 .editor__output::-webkit-scrollbar {
-  display: none;
+  height: 0.5rem;
+  width: 0.2rem;
+}
+
+textarea::-webkit-scrollbar-thumb,
+.editor__output::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  border-width: 1px;
+  background-color: gray;
 }
 
 textarea::-webkit-resizer,
