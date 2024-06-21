@@ -3,6 +3,7 @@ import Button from "./Button";
 import handleEmptyLines from "./handleEmptyLines";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import EditorHeading from "./EditorHeading";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -40,10 +41,11 @@ export default function Editor() {
 
       {preview && (
         <div className="editor--1">
-          <div className="editor__heading">
+          <EditorHeading>
             <h2>preview</h2>
             {preview && <Button dispatch={dispatch} />}
-          </div>
+          </EditorHeading>
+
           <div className="editor__area">
             <div className="editor__output">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
