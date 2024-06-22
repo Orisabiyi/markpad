@@ -1,9 +1,12 @@
-export default function Navbar() {
+export default function Navbar({ dispatch }) {
   return (
     <nav className="navbar">
-      <div className="navbar-menu">
+      <button
+        className="navbar-menu"
+        onClick={() => dispatch({ type: "options" })}
+      >
         <img src="asset/menu.png" alt="hamburger menu icon" />
-      </div>
+      </button>
       <h1>markpad</h1>
     </nav>
   );

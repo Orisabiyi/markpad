@@ -159,12 +159,12 @@ textarea::-ms-reveal {
 .editor__area h5,
 .editor__area h6 {
   line-height: 1;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid gray;
 }
 
 .editor__area h1 {
   font-size: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
 }
 
 a:link,
@@ -172,18 +172,25 @@ a:visited {
   display: inline-block;
   font-size: 1.5rem;
   font-style: italic;
+  font-weight: bold;
   color: #fff;
 }
 
 pre {
-  padding: 2rem 0;
+  padding: 1rem 2rem;
   font-size: 1.4rem;
-  position: relative;
+  background: rgb(34, 34, 34);
 }
 
-pre::before,
-pre::after {
-  height: 80%;
+blockquote {
+  position: relative;
+  background: rgb(34, 34, 34);
+  padding: 2rem;
+}
+
+blockquote::before,
+blockquote::after {
+  height: 100%;
   content: "";
   display: block;
 
@@ -192,20 +199,13 @@ pre::after {
   top: 50%;
 }
 
-pre::before {
+blockquote::before {
   right: 0;
   width: 100%;
-  background: rgb(34, 34, 34);
 }
 
-pre::after {
+blockquote::after {
   left: 0;
   width: 0.2rem;
   background: orangered;
-}
-
-pre code {
-  position: relative;
-  display: inline-block;
-  padding: 0 1rem;
 }
