@@ -8,8 +8,9 @@ import EditorArea from "./components/EditorArea";
 import Editor from "./components/Editor";
 import Navbar from "./components/Navbar";
 import Button from "./components/Button";
+import FileOption from "./components/FileOption";
 
-const initialState = { content: "", preview: false, display: false };
+const initialState = { content: "", preview: false, display: false, file: [] };
 
 function reducer(state, action) {
   switch (action.type) {
@@ -68,7 +69,7 @@ export default function App() {
         )}
       </Editor>
 
-      {display && console.log(true)}
+      {display && <FileOption dispatch={dispatch} />}
     </>
   );
 }
