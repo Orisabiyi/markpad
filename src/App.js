@@ -9,24 +9,30 @@ import Editor from "./components/Editor";
 import Navbar from "./components/Navbar";
 import Button from "./components/Button";
 
+const initialState = { content: "", preview: false, display: false };
+
 function reducer(state, action) {
   switch (action.type) {
     case "setPreview":
       return { ...state, preview: !state.preview };
     case "setContent":
       return { ...state, content: action.payload };
+    case "options":
+      return { ...state, display: !state.display };
     default:
       throw new Error("Unknown");
   }
 }
 
 export default function App() {
-  const initialState = { content: "", preview: false };
-  const [{ content, preview }, dispatch] = useReducer(reducer, initialState);
+  const [{ content, preview, display }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   return (
     <>
-      <Navbar />
+      <Navbar dispatch={dispatch} />
       <Editor>
         <div className={`editor--1 ${!preview ? "editor__full" : ""}`}>
           <EditorHeading>
@@ -61,6 +67,8 @@ export default function App() {
           </div>
         )}
       </Editor>
+
+      {display && console.log(true)}
     </>
   );
 }
